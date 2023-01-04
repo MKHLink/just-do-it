@@ -12,11 +12,20 @@ function App() {
 
   const Login = (details) => {
     console.log(details);
-  };
+
+    if (details.email == adminUser.email && details.password == adminUser.password)
+    console.log("Logged In");
+  }
+  /*else*/
+   
+   {
+    console.log("Details do not match!");
+  }
+  
 
   const Logout = () => {
     console.log("logout");
-  };
+  }
   return (
     <div className="App">
       {user.email != "" ? (
