@@ -1,10 +1,3 @@
-/*
-Brit Notes:
-
-
-
-*/
-
 const User = require('./User');
 const Workout = require('./Workout');
 const Trainer = require('./Trainer');

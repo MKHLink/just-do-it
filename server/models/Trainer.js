@@ -1,12 +1,7 @@
 /*
 Brit Notes:
 
-
-name, contact, yrs exp, clients array, number of clients(maybe a gql calc), gym number ? aka located gym, 
-
-trainer type array ( ie. strength, weight loss, muscle building)
-
-
+number of clients(maybe a gql calc), gym number ? aka located gym, 
 
 */
 
@@ -14,11 +9,38 @@ const { Schema, model } = require('mongoose');
 
 const trainerSchema = new Schema(
     {
-        name: {
-            //
+        username: {
+            type: String,
+            required: true,
+            unique: true,
         },
-        contact: {
-            //
+        password: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match: [/.+@.+\..+/, 'Must match an email address!']
+        },
+        firstName: {    
+            type: String
+        },
+        lastName: {
+            type: String
+        },
+        yearsExp : {
+            type: Number
+        },
+        trainerSpecialty: {
+            enum: {
+                values: ['Sport', 'Weight loss', 'Muscle build', 'Strength Training', 'General Training', 'Beginner']
+            }
+        },
+        trainees: {
+            // Insert users that have this trainer
         }
     }
 );
