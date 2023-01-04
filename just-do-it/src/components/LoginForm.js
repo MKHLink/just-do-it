@@ -22,7 +22,7 @@ function LoginForm({ Login, error }) {
           <input type="text" name="name" id="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name} />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Emaiil:</label>
+          <label htmlFor="email">Email:</label>
           <input type="email" name="email" id="email" onChange={e => setDetails({...details, email: e.target.value})} value={details.email} />
         </div>
         <div className="form-group">
