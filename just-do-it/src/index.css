@@ -1,3 +1,11 @@
+:root {
+  --background-color: rgb(18, 18, 52);
+  --primary-text: rgb(231, 217, 217);
+  --fun-color: aquamarine;
+  --secondary-color: grey;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +26,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #53565a;
+  background-color: var(--background-color);
 }
 
 form {
@@ -35,7 +43,7 @@ form:after {
   right: -5px;
   bottom: -5px;
   z-index: 1;
-  background-image: linear-gradient(to bottom right, #ffce00, #fe4880);
+  background-image: linear-gradient(to bottom right, var(--fun-color), var(--secondary-color));
 }
 
 form .form-inner {
@@ -89,7 +97,7 @@ form .form-inner input[type="submit"],
   display: inline-block;
   padding: 10px 15px;
   border-radius: 8px;
-  background-image: linear-gradient(to bottom right, #ffce00, #fe4880);
+  background-image: linear-gradient(to bottom right, var(--fun-color), var(--secondary-color));
   background-size: 200%;
   background-position: 0%;
   transition: 0.4s;
@@ -106,7 +114,7 @@ form .form-inner input[type="submit"]:hover,
 .welcome {
   width: 100%;
   max-width: 480px;
-  background-color: #fff;
+  background-color: rgb(240, 236, 240);
   padding: 15px 30px;
 }
 
