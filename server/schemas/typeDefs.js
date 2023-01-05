@@ -28,10 +28,16 @@ type Query {
 }
 
 type Mutation {
-  addUser(username: String!, email: String!, password: String!): User
-  addTrainer(username: String!, email: String!, password: String!): Trainer
-  userLogin(email: String!, password: String!):User
-  trainerLogin(email: String!,password: String!):Trainer
+  addUser(username: String!, email: String!, password: String!): Auth
+  addTrainer(username: String!, email: String!, password: String!): Auth
+  userLogin(email: String!, password: String!):Auth
+  trainerLogin(email: String!,password: String!):Auth
+}
+
+type Auth{
+  token: ID!
+  user:User
+  trainer:Trainer
 }
 `;
 
