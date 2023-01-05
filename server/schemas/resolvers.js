@@ -1,5 +1,6 @@
 const {User, Trainer} = require('../models/index');
 const { AuthenticationError } = require('apollo-server-express');
+const {signToken} = require('../utils/auth');
 
 const resolvers={
     Query: {
@@ -23,14 +24,16 @@ const resolvers={
     Mutation:{
       addUser: async (parent, args) => {
         const user = await User.create(args);
+        const token = signToken(user);
       
-        return user;
+        return {token,user};
       },
 
       addTrainer: async (parent, args) => {
         const user = await Trainer.create(args);
+        const token = signToken(user);
       
-        return user;
+        return {token,user};
       },
 
       //login route for user accounts
@@ -47,7 +50,8 @@ const resolvers={
           throw new AuthenticationError('User not found');
         }
 
-        return user;
+        const token = signToken(user);
+        return { token, user };
       },
 
       //login route for trainer accounts
@@ -64,7 +68,8 @@ const resolvers={
           throw new AuthenticationError('User not found');
         }
 
-        return user;
+        const token = signToken(user);
+        return { token, user };
       }
 
     }
