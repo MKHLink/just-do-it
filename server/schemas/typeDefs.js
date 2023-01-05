@@ -23,6 +23,8 @@ type User{
 
 type Query {
   helloWorld: String
+  getUsers: [User]
+  getTrainers: [Trainer]
 }
 
 type Mutation {
