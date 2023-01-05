@@ -12,7 +12,13 @@ const resolvers={
         const user = await User.create(args);
       
         return user;
-      }
+      },
+
+      addTrainer: async (parent, args) => {
+        const user = await User.create(args);
+      
+        return user;
+      },
     }
 };
 
