@@ -18,6 +18,15 @@ const resolvers={
           return Trainer.find()
           .select('-__V -password')
           .populate('trainees')
+        },
+
+        //a function to reterive the logged in user's profile
+        me: async(parent,args)=>{
+          const user = await User.findOne({})
+            .select('-__v -password')
+            .populate('trainer');
+
+            return user;
         }
       },
 

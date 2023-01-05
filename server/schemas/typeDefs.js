@@ -25,6 +25,7 @@ type Query {
   helloWorld: String
   getUsers: [User]
   getTrainers: [Trainer]
+  me: User
 }
 
 type Mutation {
