@@ -34,14 +34,13 @@ const trainerSchema = new Schema(
         yearsExp : {
             type: Number
         },
-        trainerSpecialty: {
-            enum: {
-                values: ['Sport', 'Weight loss', 'Muscle build', 'Strength Training', 'General Training', 'Beginner']
-            }
-        },
-        trainees: {
+        trainees: [
             // Insert users that have this trainer
-        }
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     }
 );
 

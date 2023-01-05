@@ -1,19 +1,20 @@
-const {Workout} = require('../models');
+const {User} = require('../models/index');
 
 const resolvers={
     Query: {
         helloWorld: () => {
           return 'Hello world!';
         }
+      },
+
+    Mutation:{
+      addUser: async (parent, args) => {
+        const user = await User.create(args);
+      
+        return user;
       }
+    }
 };
 
 module.exports = resolvers;
 
-/* Mutation:{
-        addWorkout: async (parent,{workoutName})=>{
-            const workout = await Workout.create({workoutName});
-
-            return workout;
-        }
-    }*/

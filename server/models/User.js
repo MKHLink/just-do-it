@@ -27,26 +27,10 @@ const userSchema = new Schema(
         age: {
             type: Number
         },
-        level: {
-            // CHOICES: Beginner, Intermediate, Expert
-            type: String
-        },
-        followers: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
-        ],
         trainer: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Trainer'
-            }
-        ],
-        workouts: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Workout'
             }
         ]
     },
