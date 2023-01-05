@@ -6,6 +6,7 @@ number of clients(maybe a gql calc), gym number ? aka located gym,
 */
 
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const trainerSchema = new Schema(
     {
