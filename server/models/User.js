@@ -33,6 +33,12 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Trainer'
             }
+        ],
+        workouts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Workout'
+            }
         ]
     },
     {
