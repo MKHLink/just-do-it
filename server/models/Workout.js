@@ -10,7 +10,10 @@ const workoutSchema = new Schema (
         workoutName: {
             type: String
         },
-        workoutType: [], //'Bench', 'Back', 'Legs', 'Shoulders', 'Arms', 'Abs', 'Cardio', 'Other'
+        workoutType: 
+            {
+                type:String,
+            }, //'Bench', 'Back', 'Legs', 'Shoulders', 'Arms', 'Abs', 'Cardio', 'Other'
         calsBurned: {
             type: Number,
             min: [0, 'Must be at least 0 calories burned! You put {VALUE}']

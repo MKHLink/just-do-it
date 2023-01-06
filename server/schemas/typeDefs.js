@@ -47,7 +47,7 @@ type Query {
 }
 
 type Mutation {
-  addWorkout(workoutName: String!, workoutType: String!, calsBurned: String!, time: String!, notes: String!, gymLocation: String!): Workout
+  addWorkout(workoutName: String!, workoutType: String!): Workout
   addUser(username: String!, email: String!, password: String!): Auth
   userLogin(email: String!, password: String!): Auth
 }
