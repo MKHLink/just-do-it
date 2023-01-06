@@ -20,6 +20,18 @@ const resolvers={
 
         getWorkoutsByType: async ( parent, { workoutType }) => {
           return Workout.find({workoutType})
+        },
+
+         //a function to reterive the logged in user's profile
+         me: async(parent,args,context)=>{
+          if(context.user){
+            const user = await User.findOne({_id:context.user._id})
+            .select('-__v -password')
+            .populate('trainer');
+
+            return user;
+          }
+          throw new AuthenticationError('User not logged in');
         }
       },
 

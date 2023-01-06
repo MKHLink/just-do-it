@@ -39,6 +39,7 @@ type Reaction {
 
 type Query {
   helloWorld: String
+  me: User
   getUsers: [User]
   getWorkouts: [Workout]
   getWorkoutsByType(workoutType: String!): [Workout]
