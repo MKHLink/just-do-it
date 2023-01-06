@@ -14,8 +14,9 @@ const resolvers={
           .populate('workouts')
         },
 
-        getWorkouts: async()=>{
-          return Workout.find()
+        getWorkouts: async(parent, {username})=>{
+          const params = username?{username}: {};
+          return Workout.find(params).sort({createdAt:-1});
         },
 
         getWorkoutsByType: async ( parent, { workoutType }) => {
@@ -27,7 +28,7 @@ const resolvers={
           if(context.user){
             const user = await User.findOne({_id:context.user._id})
             .select('-__v -password')
-            .populate('trainer');
+            .populate('workouts');
 
             return user;
           }

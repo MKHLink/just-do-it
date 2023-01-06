@@ -10,6 +10,10 @@ const workoutSchema = new Schema (
         workoutName: {
             type: String
         },
+        username:{
+            type: String,
+            required: true
+        },
         workoutType: 
             {
                 type:String,
