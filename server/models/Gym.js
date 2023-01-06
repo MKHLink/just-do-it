@@ -17,9 +17,6 @@ const gymSchema = new Schema(
         burrough: {
             //
         },
-        size: {
-            //
-        }
     }
 );
 

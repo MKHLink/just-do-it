@@ -28,18 +28,21 @@ const userSchema = new Schema(
         age: {
             type: Number
         },
-        trainer: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Trainer'
-            }
-        ],
+        status: {
+            type: String        // Trainer or Trainee
+        },
+        expLevel: {
+            type: String        // Beginner, Intermediate, Expert
+        },
         workouts: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Workout'
             }
-        ]
+        ],
+        gym: {
+            // related to the Gym Model
+        }
     },
     {
         toJSON: {

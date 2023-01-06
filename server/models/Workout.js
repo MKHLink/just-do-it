@@ -22,7 +22,10 @@ const workoutSchema = new Schema (
             type: String
         },
         notes: {
-            type: String
+            type: String     // What exercises did you do
+        },
+        gymLocation: {
+            type: String    // coincides with the gym model
         }
     }
 );
