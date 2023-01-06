@@ -2,9 +2,6 @@ const { Schema, model } = require('mongoose');
 
 const workoutSchema = new Schema (
     {
-        user: {
-            // INSERT USER 
-        },
         createdAt: {
             // defualt now
             type: Date,

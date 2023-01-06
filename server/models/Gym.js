@@ -1,21 +1,9 @@
-/*
-Brit Notes:
-
-
-gym, size, burrow location
-
-
-*/
-
 const { Schema, model } = require('mongoose');
 
 const gymSchema = new Schema(
     {
-        name: {
-            //
-        },
         burrough: {
-            //
+            type: String     // [ 5 burr]
         },
     }
 );

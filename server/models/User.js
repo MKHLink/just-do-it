@@ -41,13 +41,14 @@ const userSchema = new Schema(
             }
         ],
         gym: {
-            // related to the Gym Model
+            type: String         // For now but may include Gym model at later point
         }
     },
     {
         toJSON: {
             virtuals: true
-        }
+        },
+        id: false
     }
 );
 
