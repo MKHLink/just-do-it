@@ -1,16 +1,30 @@
-const { Schema, model } = require('mongoose');
+const { Schema} = require('mongoose');
 
 const reactionSchema = new Schema(
     {
         comment: {
-            type: String
+            type: String,
+            maxlength: 200
         },
         reactionType: {
-            type: String // thumbs up, down, heart, crushed it
+            type: String,
+            enum:['like','dislike'],
+            default: 'null'
+        },
+        createdAt:{
+            type: Date,
+            default: Date.now,
+        },
+        username:{
+            type: String,
+            required: true
+        }
+    },
+    {
+        toJSON:{
+            getters: true
         }
     }
 );
 
-const Reaction = model('Reaction', reactionSchema);
-
-module.exports = Reaction;
+module.exports = reactionSchema;

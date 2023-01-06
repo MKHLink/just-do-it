@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const reactionSchema = require('./Reaction');
 
 const workoutSchema = new Schema (
     {
@@ -30,9 +31,20 @@ const workoutSchema = new Schema (
         },
         gymLocation: {
             type: String    // coincides with the gym model
+        },
+        reactions:[reactionSchema]
+    },
+    {
+        toJSON:{
+            getters: true
         }
     }
 );
+//a virtual that returns the total number of reactions in a workout post
+workoutSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+  });
+  
 
 const Workout = model('Workout', workoutSchema);
 

@@ -76,6 +76,18 @@ const resolvers={
 
         const token = signToken(user);
         return { token, user };
+      },
+
+      reactTo: async(parent,{workoutId,reactionType,comment},context)=>{
+        if(context.user){
+          const updatedWorkout = await Workout.findOneAndUpdate(
+            {_id:workoutId},
+            {$push: {reactions: {reactionType, comment, username: context.user.username}}},
+            {new: true, runValidators:true}
+          );
+          return updatedWorkout;
+        }
+        throw new AuthenticationError('User not logged in');
       }
     }
 };

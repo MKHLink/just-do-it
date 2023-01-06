@@ -25,6 +25,8 @@ type Workout {
   time: String
   notes: String
   gymLocation: String
+  reactions:[Reaction]
+  reactionCount: Int
 }
 
 type Gym {
@@ -36,6 +38,7 @@ type Reaction {
   _id: ID
   comment: String
   reactionType: String
+  username: String
 }
 
 type Query {
@@ -51,6 +54,7 @@ type Mutation {
   addWorkout(workoutName: String!, workoutType: String!,calsBurned: String, time: String, notes: String, gymLocation: String): Workout
   addUser(username: String!, email: String!, password: String!,firstName: String!, lastName: String!,age: Int!, status: String!, expLevel: String!, gym: String!): Auth
   userLogin(email: String!, password: String!): Auth
+  reactTo(workoutId: ID!,reactionType: String, comment: String): Workout
 }
 
 type Auth {
