@@ -6,18 +6,47 @@ import Auth from '../utils/auth';
 function SignupForm() {
 
   const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    age:"" ,
-    status: "",
-    expLevel: "",
-    gym: "",
+    username: '',
+    email: '',
+    password: ''
   });
   
-  const [signup] = useMutation(SIGNUP, {
+  const [addUser,{error}] = useMutation(SIGNUP);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try{
+      const {data} = await addUser({
+        variables: {
+          username: formState.username,
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        age: parseInt(formState.age),
+        status: formState.status,
+        expLevel: formState.expLevel,
+        gym: formState.gym,
+        }
+      });
+      Auth.login(data.addUser.token);
+    }catch(e){
+      console.error(e);
+    }
+  };
+
+  /*const [signup] = useMutation(SIGNUP, {
     variables: {
       username: formState.username,
       email: formState.email,
@@ -34,24 +63,13 @@ function SignupForm() {
       localStorage.setItem("auth_token", addUser.token);
       window.location.reload(true);
     },
-  });
+  });*/
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    console.log("formState", formState);
-    signup();
-  };
+ 
   return (
+   <div>
     <form onSubmit={submitHandler}>
       <div className="form-inner">
         <h2>Sign up</h2>
@@ -137,6 +155,8 @@ function SignupForm() {
         <input type="submit" value="SIGNUP" />
       </div>
     </form>
+    {error && <div>Sign up failed</div>}
+    </div>
   );
 }
 
