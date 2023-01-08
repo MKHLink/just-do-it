@@ -19,7 +19,11 @@ const resolvers={
         },
 
         getWorkoutsByType: async ( parent, { workoutType }) => {
-          return Workout.find({workoutType})
+          return Workout.find({ workoutType })
+        },
+
+        getTrainers: async ( parent, { status }) => {
+          return User.find({ status })
         }
       },
 
