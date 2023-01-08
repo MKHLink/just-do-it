@@ -1,18 +1,22 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
-import { SIGNUP } from "../utils/queries";
+import { SIGNUP } from "../utils/mutations";
+import Auth from '../utils/auth';
 
 function SignupForm() {
+
   const [formState, setFormState] = useState({
     username: "",
     email: "",
     password: "",
     firstName: "",
     lastName: "",
+    age:"" ,
     status: "",
     expLevel: "",
     gym: "",
   });
+  
   const [signup] = useMutation(SIGNUP, {
     variables: {
       username: formState.username,
@@ -20,6 +24,7 @@ function SignupForm() {
       password: formState.password,
       firstName: formState.firstName,
       lastName: formState.lastName,
+      age: formState.age,
       status: formState.status,
       expLevel: formState.expLevel,
       gym: formState.gym,
@@ -92,6 +97,17 @@ function SignupForm() {
             onChange={handleChange}
           />
         </div>
+
+        <div className="form-group">
+          <label htmlFor="Age">Age:</label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            onChange={handleChange}
+          />
+        </div>
+
 
         <div className="form-group">
           <label htmlFor="status">Are you a user or trainer:</label>

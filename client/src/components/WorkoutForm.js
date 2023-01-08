@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
-import { WORKOUT } from "../utils/queries";
+import { GET_WORKOUTS } from "../utils/queries";
 
 function WorkoutForm() {
   const [formState, setFormState] = useState({
@@ -10,7 +10,7 @@ function WorkoutForm() {
     time: "",
     notes: "",
   });
-  const [workout] = useMutation(WORKOUT, {
+  const [workout] = useMutation(GET_WORKOUTS, {
     variables: {
       workoutName: formState.workoutName,
       workoutType: formState.workoutType,

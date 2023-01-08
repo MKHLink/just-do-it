@@ -1,7 +1,7 @@
 import {gql} from '@apollo/client';
 
 export const ADD_WORKOUT = gql`
-$workoutType: String!, $calsBurned: String, $time: String, $notes: String, $gymLocation: String) {
+mutation AddWorkout($workoutName: String!, $workoutType: String!, $calsBurned: String, $time: String, $notes: String, $gymLocation: String) {
   addWorkout(workoutName: $workoutName, workoutType: $workoutType, calsBurned: $calsBurned, time: $time, notes: $notes, gymLocation: $gymLocation) {
     _id
     createdAt

@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
-import { LOGIN } from "../utils/queries";
+import { LOGIN } from "../utils/mutations";
 
 
 function LoginForm()  {

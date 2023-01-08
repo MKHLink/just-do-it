@@ -3,10 +3,10 @@
 // import { WORKOUTS } from '../utils/queries';
 
 import { useQuery } from "@apollo/client";
-import { WORKOUTS } from "../utils/queries";
+import { GET_WORKOUTS } from "../utils/queries";
 
 function WorkoutList() {
-  const { data } = useQuery(WORKOUTS)
+  const { data } = useQuery(GET_WORKOUTS)
 
 
   console.log('workouts', data)
