@@ -82,7 +82,7 @@ function WorkoutForm() {
             onChange={handleChange}
           />
         </div>
-        <input type="submit" value="WORKOUT" />
+        <input type="submit" value="Create Workout" />
       </div>
     </form>
   );

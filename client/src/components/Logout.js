@@ -1,5 +1,5 @@
 const Logout = (error) => {
-    localStorage.clear()
+    localStorage.removeItem('id_token');
     window.location.reload(true)
   }
 

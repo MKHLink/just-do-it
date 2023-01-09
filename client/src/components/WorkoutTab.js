@@ -10,7 +10,7 @@ function WorkoutTab() {
     <Tabs>
     <TabList>
       <Tab>Workouts</Tab>
-      <Tab>Trainers</Tab>
+      <Tab>My Fitness</Tab>
       <Tab>Create a Workout</Tab>
     </TabList>
 
