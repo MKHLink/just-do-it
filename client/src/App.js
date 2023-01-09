@@ -38,7 +38,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-      {localStorage.auth_token && localStorage.auth_token !== null ? (
+      {localStorage.id_token && localStorage.id_token !== null ? (
         <div className="welcome">
 
           <WorkoutTab/>

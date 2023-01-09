@@ -1,25 +1,29 @@
-// import { useQuery } from '@apollo/client';
-// // import { Link } from 'react-router-dom';
-// import { WORKOUTS } from '../utils/queries';
-
 import { useQuery } from "@apollo/client";
 import { GET_WORKOUTS } from "../utils/queries";
 
 function WorkoutList() {
-  const { data } = useQuery(GET_WORKOUTS)
+  const { data,loading } = useQuery(GET_WORKOUTS);
+  const workouts = data?.getWorkouts || [];
 
 
-  console.log('workouts', data)
+ 
 
   return (
-    <div><h5>This is a list of your existing workouts:</h5>
-
-    {/* When we can add a workout, this needs to be uncommented out
-    {data.getWorkouts.map(workout => (
-      {workout}
-    ))} */}
-
-    </div>
+    <main>
+      <div>
+      { console.log( workouts)}
+        {workouts && workouts.map(workout=>{
+          return(<div key={workout._id}>
+            <h4>Username: {workout.username}</h4>
+            <h4>Workout Name: {workout.workoutName}</h4>
+            <h4>Workout Type: {workout.workoutType}</h4>
+            <h5>Calories Burned: {workout.calsBurned}</h5>
+            <h5>Workout Duration: {workout.time}</h5>
+            <p>Fitness Notes: {workout.notes}</p>
+          </div>);
+        })}
+      </div>
+    </main>
   )
 };
 
