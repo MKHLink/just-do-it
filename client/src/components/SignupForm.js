@@ -45,28 +45,6 @@ function SignupForm() {
       console.error(e);
     }
   };
-
-  /*const [signup] = useMutation(SIGNUP, {
-    variables: {
-      username: formState.username,
-      email: formState.email,
-      password: formState.password,
-      firstName: formState.firstName,
-      lastName: formState.lastName,
-      age: formState.age,
-      status: formState.status,
-      expLevel: formState.expLevel,
-      gym: formState.gym,
-    },
-
-    onCompleted: ({ addUser }) => {
-      localStorage.setItem("auth_token", addUser.token);
-      window.location.reload(true);
-    },
-  });*/
-
-  
-
  
   return (
    <div>
