@@ -56,3 +56,73 @@ query Me {
   }
 }
 `;
+
+export const GET_WORKOUT_TYPE_CHEST = gql `
+query{
+  getWorkoutsByType(workoutType: "chest") {
+    workoutName
+    notes
+    gymLocation
+    createdAt
+    calsBurned
+    time
+    workoutType
+  }
+}
+`;
+
+export const GET_WORKOUT_TYPE_BACK = gql `
+query{
+  getWorkoutsByType(workoutType: "back") {
+    workoutName
+    notes
+    gymLocation
+    createdAt
+    calsBurned
+    time
+    workoutType
+  }
+}
+`;
+
+export const GET_WORKOUT_TYPE_LEGS = gql `
+query{
+  getWorkoutsByType(workoutType: "legs") {
+    workoutName
+    notes
+    gymLocation
+    createdAt
+    calsBurned
+    time
+    workoutType
+  }
+}
+`;
+
+export const GET_WORKOUT_TYPE_SHOULDERS = gql `
+query{
+  getWorkoutsByType(workoutType: "legs") {
+    workoutName
+    notes
+    gymLocation
+    createdAt
+    calsBurned
+    time
+    workoutType
+  }
+}
+`;
+
+export const GET_WORKOUT_TYPE_ABS = gql `
+query{
+  getWorkoutsByType(workoutType: "abs") {
+    workoutName
+    notes
+    gymLocation
+    createdAt
+    calsBurned
+    time
+    workoutType
+  }
+}
+`;
