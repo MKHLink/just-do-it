@@ -73,7 +73,7 @@ function SignupForm() {
             onChange={handleChange}
           />
         </div>
-
+<div class = "container">
         <div className="form-group">
           <label htmlFor="firstName">Name:</label>
           <input
@@ -82,6 +82,7 @@ function SignupForm() {
             id="firstName"
             onChange={handleChange}
           />
+        </div>
         </div>
 
         <div className="form-group">
