@@ -74,7 +74,7 @@ function SignupForm() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="firstName">Name:</label>
+          <label htmlFor="firstName">First Name:</label>
           <input
             type="string"
             name="firstName"
