@@ -73,7 +73,6 @@ function SignupForm() {
             onChange={handleChange}
           />
         </div>
-<div class = "container">
         <div className="form-group">
           <label htmlFor="firstName">Name:</label>
           <input
@@ -82,7 +81,6 @@ function SignupForm() {
             id="firstName"
             onChange={handleChange}
           />
-        </div>
         </div>
 
         <div className="form-group">
@@ -95,7 +93,7 @@ function SignupForm() {
           />
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="Age">Age:</label>
           <input
             type="number"
@@ -103,10 +101,10 @@ function SignupForm() {
             id="age"
             onChange={handleChange}
           />
-        </div>
+        </div> */}
 
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="status">Are you a user or trainer:</label>
           <input
             type="string"
@@ -129,7 +127,7 @@ function SignupForm() {
         <div className="form-group">
           <label htmlFor="gym">Gym:</label>
           <input type="string" name="gym" id="gym" onChange={handleChange} />
-        </div>
+        </div> */}
 
         <input type="submit" value="SIGNUP" />
       </div>
