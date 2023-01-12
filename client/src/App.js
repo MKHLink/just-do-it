@@ -55,7 +55,7 @@ function App() {
         <h1>Workout Finder</h1>
 
         <p>
-          Search workouts posted by trainers for you to use. Log and post your
+          Search workouts previously posted for you to use. Log and post your
           own.{" "}
         </p>
       </div>
