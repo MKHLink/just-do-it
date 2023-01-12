@@ -1,5 +1,5 @@
 :root {
-  --background-color: rgb(64, 13, 136);
+  --background-color: rgb(28, 4, 62);
   --primary-text: rgb(231, 217, 217);
   --fun-color: aquamarine;
   --secondary-color: grey;
@@ -157,4 +157,30 @@ form .form-inner input[type="submit"]:hover,
 .workoutList {
   max-height: 600px;
     overflow-y: scroll;
+}
+
+.react-tabs {
+  height: 20px;
+}
+
+.react-tabs [role=tab]  { 
+  background: var(--secondary-color); 
+  color: 5px solid var(--fun-color);
+} 
+
+.react-tabs {
+  height: 20px;
+  color: var(--primary-text);
+  font-weight: 600;
+}
+
+.card-text {
+
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--secondary-color);
+  background-color: #fe4880;
 }
