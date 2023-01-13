@@ -78,3 +78,14 @@ mutation AddUser($username: String!, $password: String!, $email: String!, $first
   }
 }
 `;
+
+export const DELETE_WORKOUT = gql`
+mutation DeleteWorkout($workoutId: ID!) {
+  deleteWorkout(workoutId: $workoutId) {
+    _id
+    createdAt
+    workoutName
+    username
+  }
+}
+`;

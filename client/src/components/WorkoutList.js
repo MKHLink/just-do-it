@@ -1,13 +1,30 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_WORKOUTS } from "../utils/queries";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { DELETE_WORKOUT } from "../utils/mutations";
 
 function WorkoutList() {
   const { data,loading } = useQuery(GET_WORKOUTS);
   const workouts = data?.getWorkouts || [];
 
+  const [deletedWorkout, {error}] = useMutation(DELETE_WORKOUT);
 
+const handleDelete = async(workoutId)=>{
+  
+  try{
+    const {data} = await deletedWorkout({
+      variables: {workoutId}
+    });
+
+    console.log("Deleted "+ workoutId );
+    console.log(data);
+  }catch(err){
+    console.log(err);
+  }
+
+  
+};
  
 
   return (
@@ -29,7 +46,8 @@ function WorkoutList() {
             Edit
           </Button>{' '}
 
-          <Button variant="danger" size="sm">
+          <Button variant="danger" size="sm"
+            onClick={()=>handleDelete(workout._id)}>
             Delete
           </Button>
 
