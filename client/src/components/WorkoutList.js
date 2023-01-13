@@ -3,12 +3,23 @@ import { useQuery, useMutation } from "@apollo/client";
 import { GET_WORKOUTS } from "../utils/queries";
 import {Card, Button, Modal} from 'react-bootstrap';
 import { DELETE_WORKOUT } from "../utils/mutations";
+import SingleWorkout from './SingleWorkout';
 
 function WorkoutList() {
   const { data,loading } = useQuery(GET_WORKOUTS);
   const workouts = data?.getWorkouts || [];
 
   const [showModal, setShowModal] = useState(false);
+
+  const [currentWorkout, setCurrentWorkout] = useState({_id:""});
+
+  const setEdit = async(workoutId)=>{
+    console.log(workoutId);
+
+    setCurrentWorkout({
+      _id: workoutId
+    });
+  }
 
   const [deletedWorkout, {error}] = useMutation(DELETE_WORKOUT);
 
@@ -23,36 +34,12 @@ const handleDelete = async(workoutId)=>{
     console.log(data);
   }catch(err){
     console.log(err);
-  }
-
-  
+  }  
 };
-
-const [formState, setFormState] = useState({
-  workoutName: "",
-  workoutType: "",
-  calsBurned: "",
-  time: "",
-  notes: "",
-});
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-
-  setFormState({
-    ...formState,
-    [name]: value,
-  });
-};
-
-const handleEdit = async(workoutId)=>{
-  console.log(workoutId);
-}
  
 
   return (
     <main>
-      { console.log( workouts)}
       <div className="workoutList">
       {workouts && workouts.map(workout=>{
         return(
@@ -66,7 +53,7 @@ const handleEdit = async(workoutId)=>{
           <Card.Text>Fitness Tips: {workout.notes}</Card.Text>
           
           <Button variant="primary" size="sm"
-            onClick={()=>{setShowModal(true); handleEdit(workout._id)}}>
+            onClick={()=>{setShowModal(true);setEdit(workout._id)}}>
             Edit
           </Button>
 
@@ -87,57 +74,7 @@ const handleEdit = async(workoutId)=>{
         onHide={()=>setShowModal(false)}>
           <Modal.Header> Edit Workout </Modal.Header>
           <Modal.Body>
-          <form >
-      <div className="form-inner">
-        <h2>Workout</h2>
-
-        <div className="form-group">
-          <label htmlFor="workoutName">Name your workout:</label>
-          <input
-            type="string"
-            name="workoutName"
-            id="workoutName"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="workoutType">Type of workout:</label>
-          <input
-            type="string"
-            name="workoutType"
-            id="workoutType"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="calsBurned">Calories Burned:</label>
-          <input
-            type="Number"
-            name="calsBurned"
-            id="calsBurned"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="time">Length of Workout:</label>
-          <input type="string" name="time" id="time" onChange={handleChange} />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="notes">Notes:</label>
-          <input
-            type="string"
-            name="notes"
-            id="notes"
-            onChange={handleChange}
-          />
-        </div>
-        <input type="submit" value="Save Workout" />
-      </div>
-    </form>
+          <SingleWorkout currentWorkout={currentWorkout} handleModalClose={()=>setShowModal(false)}/>
           </Modal.Body>
       </Modal>
     </main>

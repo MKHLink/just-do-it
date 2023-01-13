@@ -56,6 +56,7 @@ type Mutation {
   userLogin(email: String!, password: String!): Auth
   reactTo(workoutId: ID!,reactionType: String, comment: String): Workout
   deleteWorkout(workoutId: ID!): Workout
+  editWorkout(workoutId:ID!, workoutName: String!, workoutType: String!,calsBurned: String, time: String, notes: String, gymLocation: String): Workout
 }
 
 type Auth {

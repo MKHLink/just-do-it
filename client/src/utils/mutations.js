@@ -89,3 +89,18 @@ mutation DeleteWorkout($workoutId: ID!) {
   }
 }
 `;
+
+export const EDIT_WORKOUT=gql`
+mutation EditWorkout($workoutId: ID!, $workoutName: String!, $workoutType: String!, $calsBurned: String, $time: String, $notes: String, $gymLocation: String) {
+  editWorkout(workoutId: $workoutId, workoutName: $workoutName, workoutType: $workoutType, calsBurned: $calsBurned, time: $time, notes: $notes, gymLocation: $gymLocation) {
+    _id
+    createdAt
+    workoutName
+    username
+    workoutType
+    calsBurned
+    time
+    notes
+  }
+}
+`;
