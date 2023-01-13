@@ -88,6 +88,16 @@ const resolvers={
           return updatedWorkout;
         }
         throw new AuthenticationError('User not logged in');
+      },
+
+      deleteWorkout: async(parent, {workoutId},context)=>{
+        if(context.user){
+          const deletedWorkout = await Workout.findOneAndDelete(
+            {_id: workoutId}
+          );
+          return deletedWorkout;
+        }
+        throw new AuthenticationError('User not logged in');
       }
     }
 };

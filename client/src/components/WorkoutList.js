@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_WORKOUTS } from "../utils/queries";
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 function WorkoutList() {
   const { data,loading } = useQuery(GET_WORKOUTS);
@@ -23,7 +24,15 @@ function WorkoutList() {
           <Card.Text>Calories Burned: {workout.calsBurned}</Card.Text>
           <Card.Text>Workout Duration: {workout.time}</Card.Text>
           <Card.Text>Fitness Tips: {workout.notes}</Card.Text>
-          <Card.Text>_______________________________</Card.Text>
+          
+          <Button variant="primary" size="sm">
+            Edit
+          </Button>{' '}
+
+          <Button variant="danger" size="sm">
+            Delete
+          </Button>
+
         </Card.Body>
         </Card>
         );
