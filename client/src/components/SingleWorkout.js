@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 import { EDIT_WORKOUT } from '../utils/mutations';
 
 
-const SingleWorkout = ({currentWorkout})=>{
+const SingleWorkout = (props)=>{
+
+    const {
+        currentWorkout,
+        setShowModal
+    } = props;
 
     const {_id} = currentWorkout;
 
@@ -39,6 +44,7 @@ const SingleWorkout = ({currentWorkout})=>{
                     notes: formState.notes,}
             });
             console.log({data});
+            
         }catch{
 
         }
@@ -93,7 +99,7 @@ const SingleWorkout = ({currentWorkout})=>{
             onChange={handleChange}
           />
         </div>
-        <input type="submit" value="Save Workout" />
+        <input  type="submit" onClick={()=>{setShowModal(false);}} value="Save Workout" />
       </div>
     </form>
     );

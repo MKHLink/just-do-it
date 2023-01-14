@@ -35,14 +35,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar" href="#">
+      <nav className="navbar navbar-inverse navbar-fixed-top">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar" href="#">
               WF
             </a>
           </div>
-          <ul class="nav navbar-nav">
+          <ul className="nav navbar-nav">
             <div className="welcome">
               <button onClick={LoginForm}>Login</button>
               <button onClick={Logout}>Logout</button>
@@ -51,7 +51,7 @@ function App() {
         </div>
       </nav>
 
-      <div class="jumbotron">
+      <div className="jumbotron">
         <h1>Workout Finder</h1>
 
         <p>
