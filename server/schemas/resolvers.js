@@ -1,6 +1,7 @@
 const {User, Workout, Gym, Reaction } = require('../models/index');
 const { AuthenticationError } = require('apollo-server-express');
 const {signToken} = require('../utils/auth');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers={
     Query: {
@@ -33,6 +34,29 @@ const resolvers={
             return user;
           }
           throw new AuthenticationError('User not logged in');
+        },
+
+        donate: async(parent,args, context)=>{
+          const url = new URL(context.headers.referer).origin;;
+          const session = await stripe.checkout.sessions.create({
+            line_items: [
+              {
+                price_data: {
+                  currency: 'usd',
+                  product_data: {
+                    name: 'Donation',
+                  },
+                  unit_amount: 1000,
+                },
+                quantity: 1,
+              },
+            ],
+            mode: 'payment',
+            success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${url}/`
+          });
+
+          return {session: session.id};
         }
       },
 

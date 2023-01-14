@@ -126,3 +126,11 @@ query{
   }
 }
 `;
+
+export const QUERY_DONATE = gql`
+query Donate {
+  donate {
+    session
+  }
+}
+`;

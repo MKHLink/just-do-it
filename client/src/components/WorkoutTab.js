@@ -8,6 +8,7 @@ import WorkoutBack from './Back';
 import WorkoutLegs from './Legs';
 import WorkoutShoulders from './Shoulders';
 import WorkoutAbs from './Abs';
+import Donation from './Donation';
 
 function WorkoutTab() {
 
@@ -22,6 +23,7 @@ function WorkoutTab() {
       <Tab>Leg Workouts</Tab>
       <Tab>Shoulders Workouts</Tab>
       <Tab>Abs Workouts</Tab>
+      <Tab>Donation</Tab>
     </TabList>
 
     <TabPanel>
@@ -47,6 +49,9 @@ function WorkoutTab() {
     </TabPanel>
     <TabPanel>
         <WorkoutAbs/>
+    </TabPanel>
+    <TabPanel>
+      <Donation/>
     </TabPanel>
   </Tabs>
   )

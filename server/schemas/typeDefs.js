@@ -41,6 +41,10 @@ type Reaction {
   username: String
 }
 
+type Donation{
+  session: ID
+}
+
 type Query {
   helloWorld: String
   me: User
@@ -48,6 +52,7 @@ type Query {
   getWorkouts(username:String): [Workout]
   getWorkoutsByType(workoutType: String!): [Workout]
   getTrainers(status: String!): [User]
+  donate:Donation
 }
 
 type Mutation {

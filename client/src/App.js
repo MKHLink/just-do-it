@@ -2,6 +2,8 @@ import React from "react";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import WorkoutTab from "./components/WorkoutTab";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Success from './components/Success';
 
 import Logout from "./components/Logout";
 import {
@@ -35,6 +37,15 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Router>
+
+      <Routes>
+      <Route
+        path="/success"
+        element={<Success />}
+      />
+      </Routes>
+
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
@@ -50,7 +61,7 @@ function App() {
           </ul>
         </div>
       </nav>
-
+    
       <div className="jumbotron">
         <h1>Workout Finder</h1>
 
@@ -79,6 +90,8 @@ function App() {
       <div className="flex-column justify-flex-start min-100-vh">
         <Footer />
       </div>
+      
+      </Router>
     </ApolloProvider>
   );
 }
