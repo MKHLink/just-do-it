@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/just-do-it', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/workout-finder', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 
