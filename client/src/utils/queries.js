@@ -101,7 +101,7 @@ query{
 
 export const GET_WORKOUT_TYPE_SHOULDERS = gql `
 query{
-  getWorkoutsByType(workoutType: "legs") {
+  getWorkoutsByType(workoutType: "shoulders") {
     workoutName
     notes
     gymLocation

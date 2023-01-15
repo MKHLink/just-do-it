@@ -20,7 +20,7 @@ function WorkoutShoulders() {
           <Card.Text>Calories Burned: {workout.calsBurned}</Card.Text>
           <Card.Text>Workout Duration: {workout.time}</Card.Text>
           <Card.Text>Fitness Tips: {workout.notes}</Card.Text>
-          <Card.Text>_______________________________</Card.Text>
+          
         </Card.Body>
         </Card>
         );

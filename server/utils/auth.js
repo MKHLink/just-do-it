@@ -10,7 +10,7 @@ module.exports = {
 
         return jwt.sign({data:payload},secret,{expiresIn:expiration});
     }, 
-
+    //this function acts as a middleware that grabs the token from headers or body or req
     authMiddleware: function({req}){
         let token = req.body.token || req.query.token || req.headers.authorization;
 
