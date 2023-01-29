@@ -40,7 +40,7 @@ https://workout-finder.herokuapp.com/
 ![alt text](./assets/screenshots/myfitness.png)
 
 ## Contributors
-Brit Sovic, Jen Hano, Mohammad Komol Hasan
+Brit Sovic, Jen Hano, Linkhon Hasan
 
 ## Questions
 Brit Sovic
@@ -56,7 +56,7 @@ GitHub: Jmhano
 Email: jmhano@gmail.com
 </br>
 
-Mohammad Komol Hasan
+Linkhon Hasan
 <br>
 GitHub: MKHLink
 <br>
